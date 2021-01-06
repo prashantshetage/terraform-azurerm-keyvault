@@ -24,7 +24,7 @@ resource "azurerm_key_vault_access_policy" "default_policy" {
 resource "azurerm_key_vault_access_policy" "policy" {
   for_each                = var.policies
   key_vault_id            = azurerm_key_vault.keyvault.id
-  tenant_id               = each.value.tenant_id 
+  tenant_id               = each.value.tenant_id
   object_id               = each.value.object_id
   key_permissions         = coalescelist(each.value.key_permissions, var.key_permissions_full)
   secret_permissions      = coalescelist(each.value.secret_permissions, var.secret_permissions_full)
