@@ -59,24 +59,6 @@ variable "enabled_for_template_deployment" {
   default     = false
 }
 
-/* variable "purge_soft_delete_on_destroy" {
-  type        = bool
-  description = "(Optional) Should the key vault resource be permanently deleted when destroyed?"
-  default     = false
-}
-
-variable "recover_soft_deleted_key_vaults" {
-  type        = bool
-  description = "(Optional) Terraform will automatically recover a soft-deleted Key Vault during Creation if one is found"
-  default     = true
-} */
-
-variable "soft_delete_enabled" {
-  description = "(Optional) When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default)."
-  type        = bool
-  default     = true
-}
-
 variable "purge_protection_enabled" {
   type        = bool
   description = "(Optional) When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed."
