@@ -35,6 +35,12 @@ variable "keyvault_suffix" {
   default     = ""
 }
 
+variable "create_random_string" {
+  type        = bool
+  description = "(Optional) Add random string to the keyvault name?"
+  default     = false
+}
+
 variable "sku_name" {
   description = "(Optional) The Name of the SKU used for this Key Vault"
   type        = string
@@ -152,13 +158,13 @@ variable "storage_permissions_full" {
   default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas",
   "purge", "recover", "regeneratekey", "restore", "set", "setsas", "update"]
 }
-//**********************************************************************************************
 
-
-// Local Values
-//**********************************************************************************************
-locals {
-  timeout_duration = "1h"
-  keyvault_name    = "${var.keyvault_prefix}${random_string.kv_name.result}${var.keyvault_suffix}"
+variable "secrets" {
+  type = map(object({
+    name  = string
+    value = string
+  }))
+  description = "(Optional) Secrets to be added"
+  default     = {}
 }
 //**********************************************************************************************
