@@ -1,6 +1,6 @@
 resource "azurerm_key_vault_secret" "secret" {
   depends_on = [
-    azurerm_key_vault_access_policy.default,
+    azurerm_key_vault_access_policy.default_policy,
   ]
   for_each     = var.secrets
   name         = each.value.name
