@@ -30,5 +30,9 @@ resource "azurerm_key_vault_access_policy" "policy" {
   secret_permissions      = coalescelist(each.value.secret_permissions, var.secret_permissions_full)
   certificate_permissions = coalescelist(each.value.certificate_permissions, var.certificate_permissions_full)
   storage_permissions     = coalescelist(each.value.storage_permissions, var.storage_permissions_full)
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 //**********************************************************************************************
