@@ -32,7 +32,20 @@ resource "azurerm_key_vault" "keyvault" {
   # This should allow scheduled purging of the key vault on destroy.
   purge_protection_enabled = var.purge_protection_enabled
 
-  network_acls {
+
+  dynamic "network_acls" {
+    for_each = var.network_acls == null ? [] : [var.network_acls]
+    iterator = acl
+
+    content {
+      bypass                     = coalesce(acl.value.bypass, "None")
+      default_action             = coalesce(acl.value.default_action, "Deny")
+      ip_rules                   = acl.value.ip_rules
+      virtual_network_subnet_ids = acl.value.virtual_network_subnet_ids
+    }
+  }
+
+  /* network_acls {
     # Default action to use when no rules match from ip_rules.
     default_action = var.nacl_default_action
     # Allows all azure services to acces the keyvault.
@@ -41,7 +54,7 @@ resource "azurerm_key_vault" "keyvault" {
     ip_rules = var.nacl_allowed_ips
     # The list of allowed subnets
     virtual_network_subnet_ids = var.nacl_allowed_subnets
-  }
+  } */
 
   tags       = merge(var.resource_tags, var.deployment_tags)
   depends_on = [var.it_depends_on]
