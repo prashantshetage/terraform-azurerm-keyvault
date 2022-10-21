@@ -170,7 +170,7 @@ variable "certificate_permissions_full" {
 variable "storage_permissions_full" {
   type        = list(string)
   description = "(Optional) List of full storage permissions for default accesss policy"
-  default     = ["Backup", "Delete", "DeleteSAS", "Get", "GetSAS", "List", "ListSAS", "Purge", "Recover", "RegenerateKey", "Restore", "Set", "Setsas", "Update"]
+  default     = ["Backup", "Delete", "DeleteSAS", "Get", "GetSAS", "List", "ListSAS", "Purge", "Recover", "RegenerateKey", "Restore", "Set", "SetSAS", "Update"]
 }
 
 variable "secrets" {
