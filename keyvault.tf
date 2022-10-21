@@ -1,14 +1,3 @@
-// Terraform will check when creating a Key Vault for a previous soft-deleted Key Vault and recover it if one exists
-/* provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy    = var.purge_soft_delete_on_destroy
-      recover_soft_deleted_key_vaults = var.recover_soft_deleted_key_vaults
-    }
-  }
-} */
-
-
 // Generate a random string to use in Key vault name
 resource "random_string" "kv_name" {
   length  = 4

@@ -23,6 +23,10 @@ variable "object_id" {
 
 // Optional Variables
 //**********************************************************************************************
+variable "keyvault_name" {
+  type = string
+  description = "(Required) Name of Key vault"
+}
 variable "keyvault_prefix" {
   type        = string
   description = "(Required) Prefix for Postgresql server name"
