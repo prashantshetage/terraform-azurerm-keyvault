@@ -24,7 +24,7 @@ variable "object_id" {
 // Optional Variables
 //**********************************************************************************************
 variable "keyvault_name" {
-  type = string
+  type        = string
   description = "(Required) Name of Key vault"
 }
 variable "keyvault_prefix" {
@@ -154,25 +154,23 @@ variable "policies" {
 variable "key_permissions_full" {
   type        = list(string)
   description = "(Optional) List of full key permissions for default accesss policy"
-  default = ["backup", "create", "decrypt", "delete", "encrypt", "get", "import", "list", "purge",
-  "recover", "restore", "sign", "unwrapKey", "update", "verify", "wrapKey"]
+  default     = ["Backup", "Create", "Decrypt", "Delete", "Encrypt", "Get", "Import", "List", "Purge", "Recover", "Restore", "Sign", "UnwrapKey", "Update", "Verify", "WrapKey"]
 }
 variable "secret_permissions_full" {
   type        = list(string)
   description = "(Optional) List of full secret permissions for default accesss policy"
-  default     = ["backup", "delete", "get", "list", "purge", "recover", "restore", "set"]
+  default     = ["Backup", "Delete", "Get", "List", "Purge", "Recover", "Restore", "Set"]
 }
 variable "certificate_permissions_full" {
   type        = list(string)
   description = "(Optional) List of full certificate permissions for default accesss policy"
-  default = ["create", "delete", "deleteissuers", "get", "getissuers", "import", "list", "listissuers",
-  "managecontacts", "manageissuers", "purge", "recover", "setissuers", "update", "backup", "restore"]
+  default = ["Create", "Delete", "DeleteIssuers", "Get", "GetIssuers", "Import", "List", "ListIssuers",
+  "ManageContacts", "ManageIssuers", "Purge", "Recover", "SetIssuers", "Update", "Backup", "Restore"]
 }
 variable "storage_permissions_full" {
   type        = list(string)
   description = "(Optional) List of full storage permissions for default accesss policy"
-  default = ["backup", "delete", "deletesas", "get", "getsas", "list", "listsas",
-  "purge", "recover", "regeneratekey", "restore", "set", "setsas", "update"]
+  default     = ["Backup", "Delete", "DeleteSAS", "Get", "GetSAS", "List", "ListSAS", "Purge", "Recover", "RegenerateKey", "Restore", "Set", "Setsas", "Update"]
 }
 
 variable "secrets" {
