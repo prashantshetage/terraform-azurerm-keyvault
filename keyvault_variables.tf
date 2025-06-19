@@ -69,6 +69,13 @@ variable "enabled_for_template_deployment" {
   default     = false
 }
 
+variable "enable_rbac_authorization" {
+  type        = bool
+  description = "(Optional) Boolean to enable RBAC authorization for Key Vault"
+  default     = true
+
+}
+
 variable "purge_protection_enabled" {
   type        = bool
   description = "(Optional) When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed."

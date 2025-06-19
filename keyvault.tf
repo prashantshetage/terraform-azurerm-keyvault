@@ -17,6 +17,7 @@ resource "azurerm_key_vault" "keyvault" {
   enabled_for_deployment          = var.enabled_for_deployment
   enabled_for_disk_encryption     = var.enabled_for_disk_encryption
   enabled_for_template_deployment = var.enabled_for_template_deployment
+  enable_rbac_authorization       = var.enable_rbac_authorization
 
   # This should allow scheduled purging of the key vault on destroy.
   purge_protection_enabled = var.purge_protection_enabled
