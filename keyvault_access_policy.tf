@@ -1,6 +1,17 @@
+// RBAC role assignment for Key Vault
+//**********************************************************************************************
+resource "azurerm_role_assignment" "default" {
+  scope                = azurerm_key_vault.keyvault.id
+  role_definition_name = "Key Vault Administrator"
+  principal_id         = var.object_id
+}
+//**********************************************************************************************
+
+
 // Sets up default access policies for Key Vault
 //**********************************************************************************************
 resource "azurerm_key_vault_access_policy" "default_policy" {
+  count        = var.policies == {} ? 0 : 1
   key_vault_id = azurerm_key_vault.keyvault.id
   tenant_id    = var.tenant_id
   object_id    = var.object_id
@@ -36,3 +47,5 @@ resource "azurerm_key_vault_access_policy" "policy" {
   }
 }
 //**********************************************************************************************
+
+
